@@ -19,7 +19,7 @@ jobs:
               run: rm -rf node_modules/.prisma
 
             - uses: actions/checkout@v4
-            - name: Instalando o Nde
+            - name: Instalando o Node
               uses: actions/setup-node@v4
               with:
                     node-version: 22
