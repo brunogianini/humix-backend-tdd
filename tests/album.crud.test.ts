@@ -3,7 +3,7 @@ import app from "../src/app"
 import { prisma } from "../src/utils/prisma"
 
 beforeEach(async () => {
-    await prisma.user.deleteMany()
+    await prisma.album.deleteMany()
 })
 
 describe("CRUD Álbum", () => {
