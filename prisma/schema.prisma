@@ -19,3 +19,10 @@ model User {
   email    String @unique
   senha    String
 }
+
+model Album {
+  id    String @id @default(uuid())
+  nome  String
+  banda String
+  capa  String
+}
