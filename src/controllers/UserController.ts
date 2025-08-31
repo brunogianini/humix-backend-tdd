@@ -47,8 +47,14 @@ export class UserController {
         try {
             await this.userService.deletarUsuario(id)
             return res.status(204).send()
-        } catch (err: any) {
-            return res.status(404).json({message: "Usuário não encontrado"})
+            if (
+                err?.message === "Usuário não encontrado" ||
+                err?.code === "USER_NOT_FOUND"
+            ) {
+                return res.status(404).json({message: "Usuário não encontrado"});
+            }
+            // For other errors, return 400 (Bad Request) or 500 (Internal Server Error)
+            return res.status(500).json({message: err.message || "Erro interno do servidor"});
         }
     }
 }
