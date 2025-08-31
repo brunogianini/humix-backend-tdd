@@ -21,7 +21,7 @@ export class UserService {
     }
 
     async buscaPorId(id: string): Promise<User | null>{
-        const user = this.userRepository.findById(id)
+        const user = await this.userRepository.findById(id)
         return user
     }
 
