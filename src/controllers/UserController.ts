@@ -32,8 +32,13 @@ export class UserController {
         try{
             const user = await this.userService.atualizarUsuario(id, req.body)
             return res.status(200).json(user)
-        }catch (err: any){
-            return res.status(404).json({message: "Usuário não encontrado"})
+            if (err.name === "NotFoundError" || err.message === "Usuário não encontrado") {
+                return res.status(404).json({message: "Usuário não encontrado"});
+            } else if (err.name === "ValidationError" || err.status === 400) {
+                return res.status(400).json({message: err.message});
+            } else {
+                return res.status(500).json({message: "Erro interno do servidor"});
+            }
         }
     }
 
