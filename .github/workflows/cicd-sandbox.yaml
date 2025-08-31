@@ -24,8 +24,11 @@ jobs:
             - name: Fazendo o build do projeto
               run: npm run build
 
-            - name: Criando arquivo .env com DATABASE_URL
-              run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+
+            - name: Criando arquivo .env com DATABASE_URL na raiz e em prisma/
+              run: |
+                echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+                echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > prisma/.env
 
             - name: Exibindo conteúdo do .env
               run: cat .env
