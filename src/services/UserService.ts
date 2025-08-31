@@ -6,11 +6,10 @@ export class UserService {
     constructor(private userRepository: UserRepository) {}
 
     async criarUsuario(data: CriarUsuarioDTO): Promise<User>{
-        const usuarioExiste = await this.userRepository.findByEmail(data.email)
-
         if (!this.emailValido(data.email)) throw new Error("Este email é inválido")
         if (!this.senhaValida(data.senha)) throw new Error("Esta senha é fraca")
-    
+
+        const usuarioExiste = await this.userRepository.findByEmail(data.email)
         if(usuarioExiste) throw new Error("Este email já está cadastrado")
         
         return this.userRepository.create(data)
