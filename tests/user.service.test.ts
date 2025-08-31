@@ -32,10 +32,10 @@ describe("Validações do service com Prisma", () => {
   })
 
   it("deve lançar erro ao criar um usuário com uma senha fraca", async () => {
-    const usuario: CriarUsuarioDTO = { username: "teste", email: "testegmail.com", senha: "teste123" }
+    const usuario: CriarUsuarioDTO = { username: "teste", email: "teste@gmail.com", senha: "teste123" }
 
     await expect(service.criarUsuario(usuario))
       .rejects
-      .toThrow("Este email é inválido")
+      .toThrow("Esta senha é fraca")
   })
 })
