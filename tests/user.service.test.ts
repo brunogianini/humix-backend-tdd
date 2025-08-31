@@ -3,7 +3,6 @@ import { PrismaUserRepository } from "../src/repositories/PrismaUserRepository";
 import { CriarUsuarioDTO } from "../src/dtos/CriaUsuarioDTO";
 import { prisma } from "../src/utils/prisma";
 
-// const prisma = new PrismaClient()
 let service: UserService
 
 beforeEach(async () => {
