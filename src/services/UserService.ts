@@ -34,10 +34,6 @@ export class UserService {
         return this.userRepository.delete(id)
     }
 
-
-
-
-
     private emailValido(email: string): boolean {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         return regex.test(email)
