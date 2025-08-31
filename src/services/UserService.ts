@@ -25,7 +25,7 @@ export class UserService {
         return user
     }
 
-    async atualziarUsuario(id: string, data: Partial<CriarUsuarioDTO>): Promise<User>{
+    async atualizarUsuario(id: string, data: Partial<CriarUsuarioDTO>): Promise<User>{
         const user = this.userRepository.update(id, data)
         return user
     }
