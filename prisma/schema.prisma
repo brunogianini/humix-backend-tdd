@@ -25,4 +25,5 @@ model Album {
   nome  String
   banda String
   capa  String
+  nota  Int?
 }
