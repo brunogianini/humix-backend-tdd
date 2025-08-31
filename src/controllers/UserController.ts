@@ -40,9 +40,8 @@ export class UserController {
     delete = async(req: Request, res:Response) => {
         const id: string = req.params.id
 
-        try{
-            await this.userService.deletarUsuario(id)
             return res.status(204).send()
+        } catch (err: any) {
         } catch (err: any) {
             return res.status(404).json({message: "Usuário não encontrado"})
         }
