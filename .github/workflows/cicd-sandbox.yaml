@@ -27,5 +27,8 @@ jobs:
             - name: Criando arquivo .env com DATABASE_URL
               run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
 
+            - name: Exibindo conteúdo do .env
+              run: cat .env
+
             - name: Rodando testes unitários
               run: npm run test
