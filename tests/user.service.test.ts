@@ -1,7 +1,7 @@
-import prisma from "../src/utils/prisma";
 import { UserService } from "../src/services/UserService";
 import { PrismaUserRepository } from "../src/repositories/PrismaUserRepository";
 import { CriarUsuarioDTO } from "../src/dtos/CriaUsuarioDTO";
+import { prisma } from "../src/utils/prisma";
 
 // const prisma = new PrismaClient()
 let service: UserService
