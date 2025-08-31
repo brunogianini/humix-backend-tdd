@@ -9,6 +9,11 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: Exportando DATABASE_URL para ambiente
+              run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+
+            - name: Removendo cache do Prisma Client
+              run: rm -rf node_modules/.prisma
             - name: Fazendo Checkout do código
               uses: actions/checkout@v2
 
