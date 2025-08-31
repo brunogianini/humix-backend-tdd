@@ -30,7 +30,7 @@ export class UserController {
     update = async(req: Request, res:Response) => {
         const id: string = req.params.id
         try{
-            const user = await this.userService.atualziarUsuario(id, req.body)
+            const user = await this.userService.atualizarUsuario(id, req.body)
             return res.status(200).json(user)
         }catch (err: any){
             return res.status(404).json({message: "Usuário não encontrado"})
