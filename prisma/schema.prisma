@@ -26,4 +26,5 @@ model Album {
   banda String
   capa  String
   nota  Int?
+  ano   DateTime
 }
