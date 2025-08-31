@@ -24,12 +24,12 @@ export class UserService {
         return user
     }
 
-    async atualizarUsuario(id: string, data: Partial<CriarUsuarioDTO>): Promise<User>{
-        if (data.email !== undefined && !this.emailValido(data.email)) {
-            throw new Error("Este email é inválido");
         }
-        if (data.senha !== undefined && !this.senhaValida(data.senha)) {
-            throw new Error("Esta senha é fraca");
+        if (data.email !== undefined) {
+            const usuarioExiste = await this.userRepository.findByEmail(data.email);
+            if (usuarioExiste && usuarioExiste.id !== id) {
+                throw new Error("Este email já está cadastrado");
+            }
         }
         const user = await this.userRepository.update(id, data)
         return user
