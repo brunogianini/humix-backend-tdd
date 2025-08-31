@@ -1,0 +1,28 @@
+name: Sandbox Build
+
+on:
+    push
+
+jobs: 
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Fazendo Checkout do código
+              uses: actions/checkout@v2
+
+            - uses: actions/checkout@v4
+            - name: Instalando o Nde
+              uses: actions/setup-node@v4
+              with:
+                    node-version: 22
+
+            - name: Instalando dependências do node
+              run: npm install
+
+            - name: Fazendo o build do projeto
+              run: npm run build
+
+            - name: Rodando testes unitários
+              run: npm run test
